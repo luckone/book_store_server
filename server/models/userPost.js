@@ -3,9 +3,9 @@ import mongoose from 'mongoose'
 const Schema = mongoose.Schema
 
 const userPostSchema = new Schema({
-    title: { type: String },
-    created_at: { type: Date, default: Date.now },
-    text: { type: String, required: true}
+    title: String,
+    created_at: { type: Date },
+    text: String
 })
 
 const userPost = mongoose.model('userPost', userPostSchema)

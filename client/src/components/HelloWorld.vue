@@ -1,6 +1,12 @@
 <template>
  <div class="app-gallery">
    <button @click="addPost">Click me</button>
+   <button @click="getAllPosts">get</button>
+   <input type="text" placeholder="name" v-model="name">
+   <input type="text" placeholder="surname" v-model="surname">
+   <input type="text" placeholder="login" v-model="login">
+   <input type="password" placeholder="password" v-model="password">
+   <button @click="createUser">Submit</button>
  </div>
 </template>
 
@@ -9,20 +15,32 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Your Vue.js App',
+      name: '',
+      surname: '',
+      login: '',
+      password: ''
     }
   },
   methods: {
     getAllPosts () {
-      this.$http.post('http://localhost:3000/posts/list').then(data => {
+      this.$http.post('posts/list').then(data => {
         console.log(data)
       })
     },
     addPost () {
-      this.$http.post('http://localhost:3000/posts/add', {
-        title: 'hui',
-        created_at: '',
-        text: 'hueviy post'
+      this.$http.post('posts/add', {
+        title: "asdkljasdlkjasldkjaslkdjaslkdjasld"
+      }).catch(ex => {
+        console.log(ex)
+      })
+    },
+    createUser () {
+      this.$http.post('login/create', {
+        name: this.name,
+        surname: this.surname,
+        login: this.login,
+        password: this.password
       })
     }
   }
