@@ -3,10 +3,12 @@ import mongoose from 'mongoose'
 const Schema = mongoose.Schema
 
 const userSchema = new Schema({
-    login: { type: String },
-    password: { type: String },
-    name: { type: String },
-    surname: { type: String }
+    login: { type: String, required: true },
+    password: { type: String, required: true },
+    name: { type: String, required: true },
+    surname: { type: String, required: true },
+    avatar: { type: String },
+    access_token: { type: String }
 })
 
 const user = mongoose.model('user', userSchema)

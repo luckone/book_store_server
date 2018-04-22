@@ -4,8 +4,10 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import VueResource from 'vue-resource'
+import VueCookie from 'vue-cookie'
 
 Vue.use(VueResource)
+Vue.use(VueCookie)
 Vue.http.options.emulateJSON = true
 Vue.http.options.emulateHTTP = true
 Vue.http.options.root = 'http://localhost:3000/'

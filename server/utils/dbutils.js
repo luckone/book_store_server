@@ -2,6 +2,7 @@ import mongoose from 'mongoose'
 import '../models/userPost'
 import '../models/users'
 import config from '../../config'
+import crypto from 'crypto'
 
 const userPost = mongoose.model('userPost')
 const user = mongoose.model('user')
@@ -29,12 +30,14 @@ export function removePost(id) {
     return userPost.findById(id).remove
 }
 
-export function createUser(payload) {
+export function createUser(avatar, payload) {
     const u = new user({
+        avatar: avatar,
         login: payload.login,
         password: payload.password,
         name: payload.name,
-        surname: payload.surname
+        surname: payload.surname,
+        access_token: crypto.randomBytes(20).toString('hex')
     })
 
     return u.save()
@@ -44,5 +47,11 @@ export function checkUser(payload) {
     return user.findOne({
         'login': payload.login,
         'password': payload.password
+    })
+}
+
+export function getMe(payload) {
+    return user.findOne({
+        'access_token': payload.toString()
     })
 }
