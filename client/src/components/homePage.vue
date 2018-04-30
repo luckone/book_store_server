@@ -1,10 +1,15 @@
 <template>
     <div class="home-app">
       <div class="container">
+        <div class="modal" @click="modal = false" v-if="modal">
+          <div class="modal__wrapper">
+            <img :src="profile.avatar" alt="">
+          </div>
+        </div>
         <div class="container-header">
           <div class="user">
-            <img src="../../static/u.jpeg" alt="" class="avatar">
-            <p class="name">John Doe</p>
+            <img :src="profile.avatar" alt="" class="avatar" @click="modal = true">
+            <p class="name">{{profile.name}} {{profile.surname}} <button @click="logOut">Log out</button></p>
           </div>
           <button class="btn-create">Create Post</button>
         </div>
@@ -24,7 +29,8 @@ export default {
   name: 'home-page',
   data () {
     return {
-      profile: {}
+      profile: {},
+      modal: false
     }
   },
   mounted () {
@@ -38,6 +44,12 @@ export default {
     }).catch(ex => {
       console.log(ex)
     })
+  },
+  methods: {
+    logOut () {
+      this.$cookie.delete('token')
+      this.$router.push('/')
+    }
   }
 }
 </script>
@@ -80,6 +92,7 @@ export default {
     display: flex;
     align-items: center;
     font-weight: 700;
+    cursor: pointer;
   }
 
   .avatar {
@@ -127,6 +140,35 @@ export default {
     width: 100%;
     min-width: 80px;
     min-height: 80px;
+  }
+
+  .modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: rgba(0,0,0,.7);
+    z-index: 999999;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 35px;
+    font-weight: bold;
+    color: #fff;
+  }
+
+  .modal__wrapper {
+    animation: zoom .5s ease-in-out;
+  }
+
+  @keyframes zoom {
+    0% {
+      transform: scale(0);
+    }
+    100% {
+      transform: scale(1);
+    }
   }
 
 </style>

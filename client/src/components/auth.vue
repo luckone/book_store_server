@@ -79,7 +79,7 @@
           formD.append('password', this.password)
           this.$http.post('login/create', formD).then(data => {
             if(data.body.status === true) {
-              // this.$router.push('/home')
+              this.$router.push('/home')
             }
           }).catch(ex => {
             console.log(ex)
