@@ -26,56 +26,43 @@ app.use((req, res, next) => {
     next();
 });
 
-app.post('/posts/list', (req, res) => {
-    db.listOfPosts().then(data => {
-        res.send(data)
+app.get('/books/list', (req, res) => {
+    db.listOfBooks().then(data => {
+        if(data) res.send({status: true, books: data})
+        else res.send({status:false})
     }).catch(ex => {
-        res.send(ex)
+        console.log(ex)
     })
 })
 
-app.post('/posts/add', (req, res) => {
+app.post('/books/create', (req, res) => {
     console.log(req.body)
-    db.createPost(req.body).then(data => {
-        res.send(data)
+    db.createBook(req.body).then(data => {
+        if(data) res.send({status: true, book: data})
+        else res.send({status:false})
     }).catch(ex => {
-        res.send(ex)
+        console.log(ex)
     })
 })
 
-app.post('/login', (req, res) => {
-    db.checkUser(req.body).then(data => {
-        if(data !== null) {
-          res.send({status: true, access_token: data.access_token})
-        } else res.send({status: false, message:'user not found'})
+app.delete('/books/remove/:id', (req, res) => {
+    db.removeBook(req.params.id).then(data => {
+        if(data) res.send({status: true})
+        else res.send({status:false})
     }).catch(ex => {
-        res.send(ex)
+        console.log(ex)
     })
 })
 
-app.post('/login/create', upload.single('avatar'), (req, res) => {
-    console.log(req.file)
-    db.createUser(`http://localhost:3000/${req.file.path}`, req.body).then(data => {
-        res.send({account: data, status: true})
-    }).catch(ex => {
-        res.send(ex )
-    })
-})
+// app.post('/login/create', upload.single('avatar'), (req, res) => {
+//     console.log(req.file)
+//     db.createUser(`http://localhost:3000/${req.file.path}`, req.body).then(data => {
+//         res.send({account: data, status: true})
+//     }).catch(ex => {
+//         res.send(ex )
+//     })
+// })
 
-app.post('/get-me', (req, res) => {
-    db.getMe(req.body.access_token).then(data => {
-        if(data !== null) {
-            res.send({status: true, profile: data})
-        }
-    }).catch(ex => {
-        res.send(ex)
-    })
-})
-
-app.get('/uploads/*', (req, res) => {
-    console.log(req.url)
-    res.sendfile(`.${req.url}`);
-})
 
 const server = app.listen(3000, () => {
     console.log(`server is up on ${config.serverPort}`)
