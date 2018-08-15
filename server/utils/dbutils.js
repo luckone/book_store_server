@@ -1,5 +1,6 @@
 import mongoose from 'mongoose'
 import config from '../../config'
+import '../models/book'
 
 const book = mongoose.model('book')
 
