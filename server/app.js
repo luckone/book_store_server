@@ -49,7 +49,7 @@ app.post('/books/create', upload.any(), (req, res) => {
     console.log(req.body, 'BODY')
     console.log(req.file, "CREATE")
     console.log(req.files, "CfilesTE")
-    db.createBook(`http://localhost:3000/${req.files[0].path}`, req.body).then(data => {
+    db.createBook(`http://199.247.23.102:3000/${req.files[0].path}`, req.body).then(data => {
         if(data) res.send({status: true, book: data})
         else res.send({status:false})
     }).catch(ex => {
