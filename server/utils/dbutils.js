@@ -25,5 +25,5 @@ export function createBook(payload) {
 }
 
 export function removeBook(id) {
-    return book.findById(id).remove
+    return book.findById(id).remove()
 }
