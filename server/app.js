@@ -28,7 +28,7 @@ app.use((req, res, next) => {
 
 
 app.get('/uploads/:id', (req, res) => {
-    res.sendFile(`./uploads/${req.params.id}`)
+    res.sendFile(`/uploads/${req.params.id}`, { root : __dirname})
 })
 
 app.get('/books/list', (req, res) => {
