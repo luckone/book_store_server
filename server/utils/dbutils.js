@@ -16,9 +16,9 @@ export function getBook(id) {
     return book.findById(id)
 }
 
-export function createBook(img, payload) {
+export function createBook(payload) {
     const b = new book({
-        preview: img,
+        preview: `http://199.247.23.102:3000/uploads/${payload.preview}`,
         book_name: payload.name,
         author: payload.author,
         price: payload.price,
