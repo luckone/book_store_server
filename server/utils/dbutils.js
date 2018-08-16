@@ -20,6 +20,7 @@ export function createBook(img, payload) {
     const b = new book({
         preview: img,
         book_name: payload.name,
+        genre: payload.genre,
         author: payload.author,
         price: payload.price,
         amount: payload.amount,
