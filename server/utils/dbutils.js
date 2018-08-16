@@ -31,6 +31,10 @@ export function createBook(img, payload) {
     return b.save()
 }
 
+export function updateBook (id, payload) {
+    return book.findByIdAndUpdate(id, payload)
+}
+
 export function removeBook(id) {
     return book.findById(id).remove()
 }

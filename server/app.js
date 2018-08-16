@@ -70,15 +70,15 @@ app.delete('/books/remove/:id', (req, res) => {
     })
 })
 
-// app.post('/login/create', upload.single('avatar'), (req, res) => {
-//     console.log(req.file)
-//     db.createUser(`http://localhost:3000/${req.file.path}`, req.body).then(data => {
-//         res.send({account: data, status: true})
-//     }).catch(ex => {
-//         res.send(ex )
-//     })
-// })
-
+app.post('/books/update/:id', (req, res) => {
+    db.updateBook(req.params.id, req.body).then(data => {
+        console.log('updated', data)
+        if (data) res.send({status: true, book: data})
+        else res.send({status: false})
+    }).catch(ex => {
+        console.log(ex)
+    })
+})
 
 const server = app.listen(3000, () => {
     console.log(`server is up on ${config.serverPort}`)
