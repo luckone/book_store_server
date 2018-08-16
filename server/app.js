@@ -26,6 +26,11 @@ app.use((req, res, next) => {
     next();
 });
 
+
+app.get('/uploads/:id', (req, res) => {
+    res.sendFile(`./uploads/${req.params.id}`)
+})
+
 app.get('/books/list', (req, res) => {
     db.listOfBooks().then(data => {
         if(data) res.send({status: true, books: data})
