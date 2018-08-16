@@ -35,7 +35,7 @@ app.get('/books/list', (req, res) => {
     })
 })
 
-app.get('books/get-book/:id', (req, res) => {
+app.get('/books/get-book/:id', (req, res) => {
     db.getBook(req.params.id).then(data => {
         if(data) res.send({status:true, book: data})
         else res.send({status:false})
