@@ -48,6 +48,7 @@ app.post('/books/create', upload.any(), (req, res) => {
     // console.log(req, "CREATE")
     console.log(req.body, 'BODY')
     console.log(req.file, "CREATE")
+    console.log(req.files, "CfilesTE")
     db.createBook(req.body).then(data => {
         if(data) res.send({status: true, book: data})
         else res.send({status:false})
