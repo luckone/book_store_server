@@ -16,9 +16,16 @@ export function getBook(id) {
     return book.findById(id)
 }
 
-export function createBook(payload) {
+export function createBook(img, payload) {
     const b = new book({
-        book_name: payload.name
+        preview: img,
+        book_name: payload.name,
+        author: payload.author,
+        price: payload.price,
+        amount: payload.amount,
+        pages: payload.pages,
+        published: payload.published,
+        created_at: payload.created_at
     })
 
     return b.save()

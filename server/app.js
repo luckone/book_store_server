@@ -44,9 +44,9 @@ app.get('/books/get-book/:id', (req, res) => {
     })
 })
 
-app.post('/books/create', (req, res) => {
+app.post('/books/create', upload.single('preview'), (req, res) => {
     console.log(req.body)
-    db.createBook(req.body).then(data => {
+    db.createBook(`http://localhost:3000/${req.file.path}`, req.body).then(data => {
         if(data) res.send({status: true, book: data})
         else res.send({status:false})
     }).catch(ex => {
