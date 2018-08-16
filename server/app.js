@@ -50,7 +50,7 @@ app.get('/books/get-book/:id', (req, res) => {
 })
 
 app.post('/books/create', upload.any(), (req, res) => {
-    const img = req.files ? `http://199.247.23.102:3000/${req.files[0].path}` : ''
+    const img = req.files[0].path ? `http://199.247.23.102:3000/${req.files[0].path}` : ''
     db.createBook(img, req.body).then(data => {
         if(data) res.send({status: true, book: data})
         else res.send({status:false})
