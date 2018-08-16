@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({
 }));
 app.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Credentials", "true");
-    res.setHeader("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+    res.setHeader("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT,DELETE");
     res.setHeader(
         "Access-Control-Allow-Headers",
         "Authorization, Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers"
@@ -35,6 +35,15 @@ app.get('/books/list', (req, res) => {
     })
 })
 
+app.get('/books/get-book/:id', (req, res) => {
+    db.getBook(req.params.id).then(data => {
+        if(data) res.send({status:true, book: data})
+        else res.send({status:false})
+    }).catch(ex => {
+        console.log(ex)
+    })
+})
+
 app.post('/books/create', (req, res) => {
     console.log(req.body)
     db.createBook(req.body).then(data => {
@@ -46,6 +55,7 @@ app.post('/books/create', (req, res) => {
 })
 
 app.delete('/books/remove/:id', (req, res) => {
+    console.log('delete:', req.params.id)
     db.removeBook(req.params.id).then(data => {
         if(data) res.send({status: true})
         else res.send({status:false})
