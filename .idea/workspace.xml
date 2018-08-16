@@ -4,7 +4,6 @@
     <list default="true" id="e09ec816-88af-4c4d-af75-9dbc9acb0726" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/server/models/book.js" afterPath="$PROJECT_DIR$/server/models/book.js" />
-      <change beforePath="$PROJECT_DIR$/server/utils/dbutils.js" afterPath="$PROJECT_DIR$/server/utils/dbutils.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -50,7 +49,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dbutils.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="dbutils.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/utils/dbutils.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="243">
@@ -62,11 +61,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="book.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="book.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server/models/book.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="2" column="30" lean-forward="true" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
+            <state relative-caret-position="126">
+              <caret line="7" column="12" lean-forward="false" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -100,8 +99,8 @@
         <option value="$PROJECT_DIR$/client/src/components/homePage.vue" />
         <option value="$PROJECT_DIR$/server/models/users.js" />
         <option value="$PROJECT_DIR$/server/app.js" />
-        <option value="$PROJECT_DIR$/server/models/book.js" />
         <option value="$PROJECT_DIR$/server/utils/dbutils.js" />
+        <option value="$PROJECT_DIR$/server/models/book.js" />
       </list>
     </option>
   </component>
@@ -224,12 +223,12 @@
       <workItem from="1534361496252" duration="23000" />
       <workItem from="1534361641358" duration="1584000" />
       <workItem from="1534363262877" duration="3207000" />
-      <workItem from="1534437922692" duration="13902000" />
+      <workItem from="1534437922692" duration="14268000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58587000" />
+    <option name="totallyTimeSpent" value="58953000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="110" y="26" width="1922" height="1092" extended-state="6" />
@@ -469,14 +468,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/models/book.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="30" lean-forward="true" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/utils/dbutils.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="243">
@@ -484,6 +475,14 @@
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/models/book.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="12" lean-forward="false" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
+          <folding />
         </state>
       </provider>
     </entry>

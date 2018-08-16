@@ -5,7 +5,7 @@ const Schema = mongoose.Schema
 const bookSchema = new Schema({
     book_name: {type: String, required: true},
     author: {type: String, required: true},
-    genre: [String],
+    genre: [],
     price: {type: Number, required: true},
     amount: {type: Number, default: 1},
     pages: {type: Number, default: 100},
