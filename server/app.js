@@ -35,6 +35,15 @@ app.get('/books/list', (req, res) => {
     })
 })
 
+app.get('books/get-book/:id', (req, res) => {
+    db.getBook(req.params.id).then(data => {
+        if(data) res.send({status:true, book: data})
+        else res.send({status:false})
+    }).catch(ex => {
+        console.log(ex)
+    })
+})
+
 app.post('/books/create', (req, res) => {
     console.log(req.body)
     db.createBook(req.body).then(data => {

@@ -12,6 +12,10 @@ export function listOfBooks() {
     return book.find()
 }
 
+export function getBook(id) {
+    return book.findById(id)
+}
+
 export function createBook(payload) {
     const b = new book({
         book_name: payload.name
@@ -21,5 +25,5 @@ export function createBook(payload) {
 }
 
 export function removeBook(id) {
-    book.findById(id).remove
+    return book.findById(id).remove
 }
