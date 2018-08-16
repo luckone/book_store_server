@@ -32,7 +32,8 @@ export function createBook(img, payload) {
 }
 
 export function updateBook (id, payload) {
-    return book.findByIdAndUpdate(id, payload)
+    console.log(payload, 'TO UPDATE')
+    return book.findByIdAndUpdate(id, { $set : payload })
 }
 
 export function removeBook(id) {
